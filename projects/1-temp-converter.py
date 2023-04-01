@@ -1,6 +1,19 @@
 # basic converter between F to C or F to C
 # takes in user input for conversion type,
 # than the current temperature
+
+def convertTemp(value, type):
+    if ((type == "C") or (type == "c")):
+        print(f"converting F -> C...")
+        conversion = (value - 32) * 5/9
+        print(f"{value}F -> {round(conversion, 4)}C")
+    else:
+        print(f"converting C -> F...")
+        conversion = (value * 9/5) + 32
+        print(f"{value}C -> {round(conversion, 4)}F")
+
+
+
 def main():
     # get what conversion they want to make
     type = input("Convert to F or C?: ")
@@ -15,14 +28,7 @@ def main():
         except:
             print("not a valid type, try again...")
     # convert
-    if ((type == "C") or (type == "c")):
-        print(f"converting F -> C...")
-        conversion = (value - 32) * 5/9
-        print(f"{value}F -> {round(conversion, 4)}C")
-    else:
-        print(f"converting C -> F...")
-        conversion = (value * 9/5) + 32
-        print(f"{value}C -> {round(conversion, 4)}F")
+    convertTemp(value, type)
 
 if __name__ == "__main__":
     main()
